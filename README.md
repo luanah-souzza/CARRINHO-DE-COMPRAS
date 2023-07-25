@@ -77,10 +77,15 @@ O projeto do carrinho de compras foi desenvolvido utilizando as seguintes tecnol
 
 - O projeto não está hospedado em nenhum servidor de produção e foi desenvolvido para ser executado localmente no navegador do usuário.
 
-As tecnologias e recursos acima foram escolhidos para tornar o projeto robusto, eficiente e proporcionar uma ótima experiência ao usuário.```
+As tecnologias e recursos acima foram escolhidos para tornar o projeto eficiente e proporcionar uma ótima experiência ao usuário.
 
-Novamente, adapte a lista de recursos e tecnologias de acordo com o que foi realmente utilizado no projeto, e adicione outras ferramentas ou bibliotecas que você julgue importante mencionar no contexto do seu projeto específico. Isso ajudará os leitores a entenderem quais tecnologias foram empregadas para criar o carrinho de compras e como ele foi desenvolvido.
 
+## Autora
+Este projeto foi executado por Luana Souza
+### Redes Sociais
+
+- [LinkedIn](https://www.linkedin.com/in/luana-souza-dev/)
+- [GitHub](https://github.com/luanah-souzza)
 
 ## Como Executar o Projeto
 

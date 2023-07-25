@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loja Virtual</title>
+
+    <!-- Importação do arquivo CSS do Bootstrap 5.3.0 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Barra de desconto -->
+    <div class="alert alert-success text-center mb-0">
+      <strong
+        >Obtenha 10% de desconto na sua primeira compra! Use o código:
+        DESCONTO10</strong
+      >
+    </div>
+
+    <!-- Barra de navegação -->
+    <nav class="navbar bg-light navbar-expand-sm">
+      <!-- Container da barra de navegação -->
+      <div class="container">
+        <!-- Link para a página inicial -->
+        <a class="navbar-brand" href="#">Loja Virtual</a>
+
+        <!-- Botão para mostrar/ocultar o menu em dispositivos móveis -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mynavbar"
+        >
+          <!-- Ícone do botão para mostrar/ocultar o menu -->
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Menu de navegação -->
+        <div class="collapse navbar-collapse" id="mynavbar">
+          <!-- Lista de itens do menu -->
+          <ul class="navbar-nav me-auto">
+            <!-- Item do menu: Todos os produtos -->
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="#"
+                onclick="showAllProducts()"
+                id="link-todos"
+              >
+                Todos os produtos
+              </a>
+            </li>
+
+            <!-- Item do menu: Feminino -->
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="#"
+                onclick="showProductsByCategory()"
+                id="link-feminino"
+              >
+                Feminino
+              </a>
+            </li>
+
+            <!-- Item do menu: Infantil -->
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="#"
+                onclick="showProductsByCategory()"
+                id="link-infantil"
+              >
+                Infantil
+              </a>
+            </li>
+
+            <!-- Item do menu: Masculino -->
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="#"
+                onclick="showProductsByCategory()"
+                id="link-masculino"
+              >
+                Masculino
+              </a>
+            </li>
+
+            <!-- Item do menu: Botão do carrinho -->
+            <li class="nav-item">
+              <button
+                class="btn btn-primary"
+                type="button"
+                data-bs-toggle="modal"
+                data-bs-target="#cartModal"
+              >
+                Carrinho
+              </button>
+            </li>
+          </ul>
+
+          <!-- Formulário de pesquisa -->
+          <form class="d-flex">
+            <input class="form-control me-2" type="text" placeholder="Search" />
+            <button
+              class="btn btn-success"
+              type="button"
+              onclick="pesquisa()"
+              id="btn-pesquisa"
+            >
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Container para exibir os produtos -->
+    <div class="container">
+      <!-- Linha com colunas responsivas para os produtos -->
+      <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-3" id="products">
+        <!-- Cards dos produtos serão preenchidos aqui via JavaScript (função initializeProducts) -->
+      </div>
+    </div>
+
+    <!-- Modal do carrinho de compras -->
+    <div
+      class="modal fade"
+      id="cartModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="cartModalLabel"
+      aria-hidden="true"
+    >
+    <!-- Criação do modal do carrinho de compras -->
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+           <!-- Cabeçalho do modal -->
+          <div class="modal-header">
+            <h5 class="modal-title" id="cartModalLabel">Carrinho de Compras</h5>
+             <!-- Botão para fechar o modal -->
+            <button
+              type="button"
+              class="close"
+              data-bs-dismiss="modal"
+              aria-label="Fechar"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <!-- Corpo do modal -->
+          <div class="modal-body">
+            <!-- Conteúdo do carrinho de compras será preenchido aqui via JavaScript -->
+            <ul class="list-group mb-3" id="cartItems">
+             <!-- Lista para exibir os itens do carrinho de compras -->
+            </ul>
+          </div>
+           <!-- Rodapé do modal -->
+          <div class="modal-footer">
+             <!-- Botão para continuar comprando -->
+            <button
+              type="button"
+              class="btn btn-secondary"
+              id="btn-continue-shopping"
+              data-bs-dismiss="modal"
+            >
+              Continuar Comprando
+            </button>
+            <!-- Botão para finalizar a compra -->
+            <button type="button"class="btn btn-danger" onclick="checkout()">
+              Finalizar Compra
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+   <!-- Rodapé -->
+<footer class="footer bg-light py-5">
+  <div class="container">
+    <div class="row">
+      <!-- Coluna para informações "Sobre Nós" -->
+      <div class="col-lg-4 col-md-6 mb-4">
+        <h5>Sobre Nós</h5>
+        <!-- Breve descrição sobre a loja -->
+        <p>
+          Somos uma loja de roupas que busca oferecer as últimas tendências
+          da moda com estilo e qualidade.
+        </p>
+      </div>
+
+      <!-- Coluna para as categorias -->
+      <div class="col-lg-2 col-md-6 mb-4">
+        <h5>Categorias</h5>
+        <!-- Lista das categorias com links para as páginas correspondentes -->
+        <ul class="list-unstyled">
+          <li><a href="#">Feminino</a></li>
+          <li><a href="#">Masculino</a></li>
+          <li><a href="#">Infantil</a></li>
+        </ul>
+      </div>
+
+      <!-- Coluna para links das redes sociais -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <h5>Redes Sociais</h5>
+        <!-- Lista de ícones das redes sociais com links para os perfis -->
+        <ul class="list-inline">
+          <li class="list-inline-item">
+            <a href="#" target="_blank">
+              <i class="fab fa-facebook"></i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#" target="_blank">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#" target="_blank">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Coluna para informações de contato -->
+      <div class="col-lg-3 col-md-6">
+        <h5>Contato</h5>
+        <!-- Detalhes de contato da loja -->
+        <p>Email: contato@lojavirtual.com</p>
+        <p>Telefone: (11) 1234-5678</p>
+      </div>
+    </div>
+
+    <!-- Linha horizontal separadora -->
+    <hr />
+
+    <!-- Linha com texto do direitos autorais -->
+    <div class="row">
+      <div class="col-12 text-center">
+        <p>&copy; 2023 Loja Virtual. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Inclusão do arquivo de script JavaScript -->
+<script src="scripts/script.js"></script>
+
+<!-- Importação do arquivo JavaScript do Bootstrap 5.3.0 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
